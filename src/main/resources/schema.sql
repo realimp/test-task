@@ -16,3 +16,10 @@ create table AIRPLANE (
   fuelCapacity INT,
   seats INT
 );
+
+create table ASSESSED_VALUES (
+    id IDENTITY primary key,
+    assessed_value DEC(20),
+    assessed_date DATE,
+    collateral_object_id BIGINT
+);

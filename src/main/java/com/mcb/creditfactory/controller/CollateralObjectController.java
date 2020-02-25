@@ -1,6 +1,8 @@
 package com.mcb.creditfactory.controller;
 
+import com.mcb.creditfactory.dto.AssessmentDto;
 import com.mcb.creditfactory.dto.Collateral;
+import com.mcb.creditfactory.model.AssessedValue;
 import com.mcb.creditfactory.service.CollateralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -24,5 +26,11 @@ public class CollateralObjectController {
     public HttpEntity<Collateral> getInfo(@RequestBody Collateral object) {
         Collateral info = service.getInfo(object);
         return info != null ? ResponseEntity.ok(info) : ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/collateral/assess")
+    public HttpEntity<AssessedValue> assess(@RequestBody AssessmentDto object) {
+        AssessedValue value = service.assessCollateral(object);
+        return value != null ? ResponseEntity.ok(value) : ResponseEntity.notFound().build();
     }
 }

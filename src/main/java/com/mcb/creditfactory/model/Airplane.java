@@ -11,17 +11,20 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "CAR")
-public class Car {
+@Table(name = "AIRPLANE")
+public class Airplane {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String brand;
     private String model;
-    private Double power;
+    private String manufacturer;
 
     @Column(name = "year_of_issue")
     private Short year;
+
+    private Integer fuelCapacity;
+    private Integer seats;
 
     @OneToMany
     @JoinColumn(name = "collateral_object_id")
